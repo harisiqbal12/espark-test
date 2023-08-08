@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(uuid())
+  name     String   @db.VarChar(20)
+  email    String   @unique
+  password String
+  type     UserType @default(USER)
+
+  borrowed_items Items[] @relation("borrowed")
+  authors        Items[] @relation("author")
+
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Items {
+  id          String    @id @default(uuid())
+  name        String    @unique @db.VarChar(30)
+  available   Boolean   @default(true)
+  description String?
+  type        ItemsType
+  data        String?
+
+  borrow_id String?
+  borrow    User?   @relation("borrowed", references: [id], fields: [borrow_id])
+
+  author_id String? // this should not be null i found it at the end of the assignment
+  author    User?   @relation("author", references: [id], fields: [author_id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum ItemsType {
+  NEWSPAPER
+  DOCUMENTARIES
+  BOOKS
+}
+
+enum UserType {
+  ADMIN
+  USER
+}

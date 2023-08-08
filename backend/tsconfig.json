@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "es2016",
+		"module": "commonjs",
+		"rootDir": "src",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"outDir": "build",
+		"resolveJsonModule": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@controller": ["controller/index.ts"],
+			"@utils": ["utils/index.ts"],
+			"@error": ["error/index.ts"],
+			"@middleware": ["middleware/index.ts"],
+			"@services": ["services/index.ts"]
+		}
+	},
+	"include": ["src"]
+}
