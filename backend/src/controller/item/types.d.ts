@@ -7,6 +7,7 @@ export type ItemProps = {
 	data: string | null;
 	borrow: {
 		name: string;
+		email: string;
 	} | null;
 	author: {
 		name: string;

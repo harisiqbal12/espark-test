@@ -25,6 +25,7 @@ export default catchError(async (req: R, res, next) => {
 
 			data: {
 				borrow_id: req.user?.id,
+				available: false
 			},
 		});
 

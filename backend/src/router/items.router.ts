@@ -13,5 +13,6 @@ router.delete('/:id', items.itemDelete);
 router.patch('/:id', items.itemUpdate);
 router.patch('/borrow/:id', items.borrowItem);
 router.delete('/borrow/:id', items.unborrowItem);
+router.get('/borrow', items.userBorrow);
 
 export default router;

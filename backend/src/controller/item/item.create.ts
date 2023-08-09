@@ -10,7 +10,7 @@ export default catchError(async (req: R, res: Response<Res>, next) => {
 			data: {
 				name: req.body.name,
 				description: req.body?.description || null,
-				type: 'BOOKS',
+				type: req.body.type,
 				data: req.body?.data || null,
 				author_id: req.user?.id,
 			},

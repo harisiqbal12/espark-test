@@ -31,6 +31,7 @@ export default catchError(async (req: R, res, next) => {
 
 			data: {
 				borrow_id: null,
+				available: true
 			},
 		});
 

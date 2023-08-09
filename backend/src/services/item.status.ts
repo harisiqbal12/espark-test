@@ -3,6 +3,8 @@ import { Request, Response } from 'express';
 import { prisma, getType } from '@utils';
 
 export default async function handler(req: Request, res: Response) {
+
+
 	const data = await prisma.items.findFirst({
 		where: {
 			AND: [

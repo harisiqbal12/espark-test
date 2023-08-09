@@ -19,7 +19,7 @@ export const validator = create((data: LoginProps) => {
 		() => {
 			test(
 				'password',
-				'Password is already exists',
+				'Password is too short',
 				//@ts-ignore
 				() => {
 					return validatePassword(data.password);

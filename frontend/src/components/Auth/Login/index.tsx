@@ -22,6 +22,7 @@ export default function Login(): JSX.Element {
 					name='email'
 					hookProps={register('email')}
 					errorField={errors?.email?.message?.length ? true : false}
+					message={errors?.email?.message}
 				/>
 				<Input
 					label='Password'
@@ -30,6 +31,7 @@ export default function Login(): JSX.Element {
 					name='password'
 					hookProps={register('password')}
 					errorField={errors?.password?.message?.length ? true : false}
+					message={errors?.password?.message}
 				/>
 				<Link to='/register'>
 					<span

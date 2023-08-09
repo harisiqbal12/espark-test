@@ -17,6 +17,7 @@ const userSlice = createSlice({
 			state.authenticated = action.payload.authenticated;
 			state.email = action.payload.email;
 			state.name = action.payload.name;
+			state.type = action.payload.type;
 		},
 		logoutUser: (state, _action: PayloadAction<UserState>) => {
 			state.authenticated = false;

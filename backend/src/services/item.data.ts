@@ -25,6 +25,7 @@ export default async function handler(req: Request, res: Response) {
 			borrow: {
 				select: {
 					name: true,
+					email: true,
 				},
 			},
 			author: {

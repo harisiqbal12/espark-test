@@ -12,6 +12,7 @@ export default function AuthProvider({
 	path,
 	exact,
 	children,
+	admin,
 }: Props): JSX.Element {
 	const dispatch = useDispatch();
 	const user: UserState = useSelector((state: StoreTypes) => state.user);
@@ -33,6 +34,7 @@ export default function AuthProvider({
 
 		(async () => {
 			try {
+				console.log(token);
 				const response = await axios('/api/auth/verify', {
 					method: 'POST',
 					data: {
@@ -40,6 +42,7 @@ export default function AuthProvider({
 					},
 				});
 
+				console.log(response?.data?.user);
 				if (response.data?.success) {
 					dispatch(
 						setUser({
@@ -88,6 +91,31 @@ export default function AuthProvider({
 		return <Redirect to='/login' />;
 	}
 
+	console.log(user);
+	console.log('user 95');
+	console.log(admin)
+
+	if (admin && user.type === 'ADMIN') {
+		console.log('admin true');
+		return (
+			<Route path={path} exact={exact}>
+				{children}
+			</Route>
+		);
+	}
+
+	if (admin && user?.type !== 'ADMIN') {
+		console.log('user true');
+
+		return (
+			<Route path={path} exact={exact}>
+				You're not admin
+			</Route>
+		);
+	}
+
+	console.log("116")
+
 	return (
 		<Route path={path} exact={exact}>
 			{children}
@@ -99,4 +127,5 @@ interface Props {
 	path: string;
 	exact: boolean;
 	children: JSX.Element;
+	admin?: boolean;
 }

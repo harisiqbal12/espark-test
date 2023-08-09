@@ -22,6 +22,7 @@ export default catchError(async (req, res: Response<Res>, next) => {
 				borrow: {
 					select: {
 						name: true,
+						email: true,
 					},
 				},
 				author: {

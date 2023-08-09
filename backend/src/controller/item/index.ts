@@ -7,3 +7,4 @@ export { default as itemDelete } from './item.delete';
 export { default as itemUpdate } from './item.update';
 export { default as borrowItem } from './items.borrow';
 export { default as unborrowItem } from './item.unborrow';
+export { default as userBorrow } from './item.userBorrow';
