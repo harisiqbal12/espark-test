@@ -91,12 +91,7 @@ export default function AuthProvider({
 		return <Redirect to='/login' />;
 	}
 
-	console.log(user);
-	console.log('user 95');
-	console.log(admin)
-
 	if (admin && user.type === 'ADMIN') {
-		console.log('admin true');
 		return (
 			<Route path={path} exact={exact}>
 				{children}
@@ -113,8 +108,6 @@ export default function AuthProvider({
 			</Route>
 		);
 	}
-
-	console.log("116")
 
 	return (
 		<Route path={path} exact={exact}>

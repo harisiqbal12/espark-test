@@ -2,7 +2,7 @@ import CountUp from 'react-countup';
 import { useEffect, useState } from 'react';
 import cookie from 'js-cookie';
 import axios from 'axios';
-import { Button, Input } from '../Utils';
+import CreateItem from './ItemCreate';
 
 export default function Admin(): JSX.Element {
 	const [statistics, setStatistics] = useState({
@@ -86,25 +86,7 @@ export default function Admin(): JSX.Element {
 					<span>Total Available</span>
 				</div>
 			</div>
-			{/* on login and register i used uncontrolled form and now im giving controlled form example */}
-			<form className='w-1/2 flex h-fit p-6 flex-col rounded-lg bg-zinc-800 mt-10 gap-10 shrink-0'>
-				<span className='text-white font-semibold'>ADD ITEM</span>
-
-				<div className='w-full flex flex-col gap-4'>
-					<Input placeholder='Enter item name' label='' name='name' type='text' />
-					<Input
-						placeholder='Enter item description'
-						label=''
-						name='description'
-						type='text'
-					/>
-					<Input placeholder='Enter item data' label='' name='data' type='text' />
-				</div>
-
-				<div className='w-full flex justify-center'>
-					<Button title='Submit' />
-				</div>
-			</form>
+			<CreateItem />
 		</div>
 	);
 }

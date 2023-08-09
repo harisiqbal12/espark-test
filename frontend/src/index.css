@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
-  overflow-y: hidden !important;
-  overflow-x: hidden !important;
-  scroll-behavior: smooth;
+	overflow-y: hidden !important;
+	overflow-x: hidden !important;
+	scroll-behavior: smooth;
+}
+
+@layer components {
+	.select-child {
+		@apply w-full h-14 rounded-lg bg-white hover:bg-gray-200 text-zinc-600 font-semibold text-sx flex items-center px-4 transition duration-100; 
+	}
 }
